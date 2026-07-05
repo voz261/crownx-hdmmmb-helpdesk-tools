@@ -346,7 +346,7 @@ function addToolbar() {
         col2.append(label2);
         col2.append(
             button(
-                "Reply (+clipboard)",
+                "Reply (+Paste)",
                 "#ff9800",
                 () => replyTicket(false)
             )
@@ -362,7 +362,7 @@ function addToolbar() {
             );
             col2.append(
                 button(
-                    "✨1-Click✨ Reply(+clip) ➜ Close",
+                    "✨1-Click✨ Reply (+Paste) ➜ Close",
                     "#d32f2f",
                     superFast1Click
                 )
