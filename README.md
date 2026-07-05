@@ -11,9 +11,8 @@
 ## 📋 Mục lục
 
 - [🚀 Giới thiệu](#-giới-thiệu)
-- [📸 Giao diện](#-giao-diện)
 - [📥 Cài đặt](#-cài-đặt)
-- [🔐 Cấu hình Discord Webhook](#-cấu-hình-discord-webhook)
+- [📸 Giao diện](#-giao-diện)
 - [🔄 Cập nhật](#-cập-nhật)
 - [👤 Tác giả](#-tác-giả)
 
@@ -21,9 +20,23 @@
 
 ## 🚀 Giới thiệu
 
-Script Tampermonkey giúp tối ưu hóa quy trình xử lý ticket trên hệ thống Helpdesk, giảm thiểu thao tác thủ công và tăng hiệu suất làm việc.
+Script Tampermonkey giúp giảm thời gian lý ticket Reset Pass trên hệ thống Helpdesk, giảm thao tác thủ công và tăng hiệu suất làm việc.
 
 **Repository**: [github.com/voz261/crownx-hdmmmb-helpdesk-tools](https://github.com/voz261/crownx-hdmmmb-helpdesk-tools)
+
+---
+## 📥 Cài đặt 
+
+1. Cài extension [Tampermonkey](https://www.tampermonkey.net/) trên trình duyệt
+2. Click vào link cài đặt trực tiếp:
+   👉 **[Install Helpdesk Tools](https://github.com/voz261/crownx-hdmmmb-helpdesk-tools/raw/refs/heads/main/helpdesk-tools.user.js)**
+3. Tampermonkey sẽ tự động nhận diện và hiện cửa sổ cài đặt
+4. Click **Install** để hoàn tất
+
+
+**Lần đầu sử dụng**, script sẽ hiện popup yêu cầu nhập Discord Webhook: (Liên hệ Tuanna3)
+1. Nhập Webhook URL
+2. Click **OK** để lưu
 
 ---
 
@@ -42,32 +55,13 @@ Script Tampermonkey giúp tối ưu hóa quy trình xử lý ticket trên hệ t
 | **✨1-Click✨** | Reply + Close | Kết hợp cả 2 chức năng trên chỉ trong 1 click |
 
 ### 🚀 Gán ticket
-- **Assign VHUD**: Gán ticket cho team VHUD *Trường hợp đã reset nhưng acc bị khóa*
+- **Assign VHUD**: Gán ticket cho team VHUD ⚠ *Trường hợp đã reset nhưng acc bị khóa*
 - **Assign Tuanna3**: Gán ticket cho Tuanna3 ⚠️ *Trường hợp tái tuyển/không tìm được ad*
 
 ### 🛠️ Các chức năng khác
 - **Close (Máy tính)**: Đóng ticket với category *"Dịch vụ Máy tính"*
 - **Close (Cân điện tử)**: Đóng ticket với category *"Hỗ trợ Cân"*
-
----
-
-## 📥 Cài đặt 
-
-1. Cài extension [Tampermonkey](https://www.tampermonkey.net/) trên trình duyệt
-2. Click vào link cài đặt trực tiếp:
-   👉 **[Install Helpdesk Tools](https://github.com/voz261/crownx-hdmmmb-helpdesk-tools/raw/refs/heads/main/helpdesk-tools.user.js)**
-3. Tampermonkey sẽ tự động nhận diện và hiện cửa sổ cài đặt
-4. Click **Install** để hoàn tất
-
----
-
-## 🔐 Cấu hình Discord Webhook
-
-**Lần đầu sử dụng**, script sẽ tự động hiện popup yêu cầu nhập Discord Webhook:
-
-1. Nhập Webhook URL vào ô prompt
-2. Click **OK** để lưu
-
+- **Close (Đường truyền)**: Đóng ticket với category *"Đường truyền"*
 ---
 
 ## 🔄 Cập nhật
