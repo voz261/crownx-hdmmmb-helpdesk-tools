@@ -36,7 +36,7 @@ Script Tampermonkey giúp giảm thời gian lý ticket Reset Pass trên hệ th
 ### 👷 Bước 2: Xử lý ticket
 | Nút | Chức năng | Mô tả |
 |:---|:---|:---|
-| **Reply (+clipboard)** | Trả lời ticket | Lấy nội dung đã Copy (Ctrl+C | clipboard) và dán vào khung reply |
+| **Reply (+clipboard)** | Trả lời ticket | Lấy nội dung đã Copy (Ctrl+C) và dán vào khung reply |
 | **Close (Đăng nhập)** | Đóng ticket | Đóng ticket với category *"Dịch vụ Đăng nhập"* |
 | **✨1-Click✨** | Reply + Close | Kết hợp cả 2 chức năng trên chỉ trong 1 click |
 
