@@ -112,6 +112,7 @@ async function autoClose(sub) {
         await pickUp();
         $req.prop.sectionalFieldsEdit();
         await setSelect("group", "1 IT-HelpdeskMB");
+		await setSelect("impact", "WMP - WinmartPlus");
         await setSelect("category", "1.1.Hạ tầng - Helpdesk");
         await setSelect("subcategory", sub);
         await setSelect("status", "7 Closed");
