@@ -49,7 +49,7 @@ Script Tampermonkey giúp tối ưu hóa quy trình xử lý ticket trên hệ t
 
 ---
 
-## 📥 Cài đặt động từ GitHub (Khuyến nghị)
+## 📥 Cài đặt 
 
 1. Cài extension [Tampermonkey](https://www.tampermonkey.net/) trên trình duyệt
 2. Click vào link cài đặt trực tiếp:
