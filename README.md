@@ -4,32 +4,20 @@
 [![Tampermonkey](https://img.shields.io/badge/Tampermonkey-Supported-green.svg)](https://www.tampermonkey.net/)
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-black.svg)](https://github.com/voz261/crownx-hdmmmb-helpdesk-tools)
 ---
-
-## 🚀 Giới thiệu
-
+## Giới thiệu
 Script giúp giảm thời gian lý ticket Reset Pass trên hệ thống Helpdesk
 Giảm thao tác thủ công và tăng hiệu suất làm việc.
-
-**Repository**: [github.com/voz261/crownx-hdmmmb-helpdesk-tools](https://github.com/voz261/crownx-hdmmmb-helpdesk-tools)
-
 ---
-
 ## 📥 Cài đặt 
-
 1. Cài extension [Tampermonkey](https://www.tampermonkey.net/) trên trình duyệt
 2. Click vào link cài đặt trực tiếp:
    👉 **[Install Helpdesk Tools](https://github.com/voz261/crownx-hdmmmb-helpdesk-tools/raw/refs/heads/main/helpdesk-tools.user.js)**
 3. Tampermonkey sẽ tự động nhận diện và hiện cửa sổ cài đặt
-
 ---
-
 ## 📸 Giao diện
-
 ![Helpdesk Tools Interface](demo.png)
-
 ### 📤 Bước 1: Gửi thông tin
 - **Send Discord**: Gửi nội dung ticket hiện tại lên Discord qua Webhook
-
 ### 👷 Bước 2: Xử lý ticket
 | Nút | Chức năng | Mô tả |
 |:---|:---|:---|
