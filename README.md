@@ -4,10 +4,6 @@
 [![Tampermonkey](https://img.shields.io/badge/Tampermonkey-Supported-green.svg)](https://www.tampermonkey.net/)
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-black.svg)](https://github.com/voz261/crownx-hdmmmb-helpdesk-tools)
 ---
-## Giới thiệu
-Script giúp giảm thời gian lý ticket Reset Pass trên hệ thống Helpdesk
-Giảm thao tác thủ công và tăng hiệu suất làm việc.
----
 ## 📥 Cài đặt 
 1. Cài extension [Tampermonkey](https://www.tampermonkey.net/) trên trình duyệt
 2. Click vào link cài đặt trực tiếp:
@@ -36,17 +32,11 @@ Giảm thao tác thủ công và tăng hiệu suất làm việc.
 ---
 
 ## 🔄 Cập nhật
-
 ### Tự động
 Tampermonkey tự động kiểm tra và cập nhật script khi có version mới (mặc định mỗi ngày).
-
 ### Thủ công
 1. Mở Tampermonkey → Dashboard
 2. Click vào script **Helpdesk Tools**
 3. Chọn **Check for updates**
-
 ---
-
-## 👤 Tác giả
-
-**tuanna3**
+## 👤 Tác giả Tuanna3
