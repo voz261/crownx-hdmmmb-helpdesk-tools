@@ -11,7 +11,7 @@
 ## 📋 Mục lục
 
 - [🚀 Giới thiệu](#-giới-thiệu)
-- [✨ Tính năng](#-tính-năng)
+- [📸 Giao diện](#-giao-diện)
 - [📥 Cài đặt](#-cài-đặt)
 - [🔐 Cấu hình Discord Webhook](#-cấu-hình-discord-webhook)
 - [🔄 Cập nhật](#-cập-nhật)
@@ -27,7 +27,9 @@ Script Tampermonkey giúp tối ưu hóa quy trình xử lý ticket trên hệ t
 
 ---
 
-## ✨ Tính năng
+## 📸 Giao diện
+
+![Helpdesk Tools Interface](demo.png)
 
 ### 📤 Bước 1: Gửi thông tin
 - **Send Discord**: Gửi nội dung ticket hiện tại lên Discord qua Webhook
