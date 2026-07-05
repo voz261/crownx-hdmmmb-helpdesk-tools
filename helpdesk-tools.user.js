@@ -116,12 +116,12 @@ async function autoClose(sub) {
         await setSelect("subcategory", sub);
         await setSelect("status", "7 Closed");
         $req.prop.inlineSave();
-        
+
         await sleep(1000);
-        
+
         // Tìm nút "Tiếp theo"
         const nextButton = document.querySelector('.li-nav.btn-group a:last-child');
-        
+
         // Kiểm tra nút có tồn tại và không bị disabled
         if (nextButton && !nextButton.hasAttribute('disabled')) {
             console.log('Click vào nút Tiếp theo');
@@ -314,13 +314,16 @@ function addToolbar() {
             min-width:65px;
         `;
         col1.append(label1);
-        col1.append(
-            button(
-                "Send Discord",
-                "#5865F2",
-                () => sendDiscord(desc)
-            )
-        );
+		if (hasEmployeeIds) {
+            col1.append(
+                button(
+                    "Send Discord",
+                    "#5865F2",
+                    () => sendDiscord(desc)
+                )
+            );
+        }
+
 
         // === CỘT 2: Bước tiếp theo (Reply + Closed + SuperFast) - Chỉ hiện khi có mã NV ===
         const col2 = document.createElement("div");
@@ -347,18 +350,25 @@ function addToolbar() {
                 "Reply (+clipboard)",
                 "#ff9800",
                 () => replyTicket(false)
-            ),
-            button(
-                "Close (Đăng nhập)",
-                "#17a2b8",
-                () => autoClose("Dịch vụ Đăng nhập")
-            ),
-            button(
-                "✨1-Click✨ Reply(+clip) ➜Close ➜NextTicket",
-                "#d32f2f",
-                superFast1Click
             )
         );
+
+        if (hasEmployeeIds) {
+            col2.append(
+                button(
+                    "Close (Đăng nhập)",
+                    "#17a2b8",
+                    () => autoClose("Dịch vụ Đăng nhập")
+                )
+            );
+            col2.append(
+                button(
+                    "✨1-Click✨ Reply(+clip) ➜Close ➜NextTicket",
+                    "#d32f2f",
+                    superFast1Click
+                )
+            );
+        }
 
         // === CỘT 3: Dịch vụ phát sinh (Assign) - Chỉ hiện khi có mã NV ===
         const col3 = document.createElement("div");
@@ -421,18 +431,18 @@ function addToolbar() {
             min-width:65px;
         `;
         col4.append(label4);
+		col4.append(
+            button(
+                "Close (Đăng nhập)",
+                "#17a2b8",
+                () => autoClose("Dịch vụ Đăng nhập")
+            )
+        );
         col4.append(
             button(
                 "Close (Máy tính)",
                 "#17a2b8",
                 () => autoClose("Dịch vụ Máy tính")
-            )
-        );
-        col4.append(
-            button(
-                "Close (Đăng nhập)",
-                "#17a2b8",
-                () => autoClose("Dịch vụ Đăng nhập")
             )
         );
         col4.append(
@@ -450,10 +460,12 @@ function addToolbar() {
             )
         );
 
-        // Chỉ thêm col1 col2 và col3 nếu có mã nhân viên
+
         if (hasEmployeeIds) {
-            container.append(col1,col2, col3);
+            container.append(col1);
         }
+		container.append(col2);
+		container.append(col3);
         container.append(col4);
 
         const actions = document.getElementById("desc-section");
