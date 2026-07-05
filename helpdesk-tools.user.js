@@ -350,7 +350,7 @@ function addToolbar() {
             ),
             button(
                 "Close (Đăng nhập)",
-                "#1976d2",
+                "#17a2b8",
                 () => autoClose("Dịch vụ Đăng nhập")
             ),
             button(
