@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Helpdesk Tools
 // @namespace    https://github.com/voz261/crownx-hdmmmb-helpdesk-tools
-// @version      1.1.3
+// @version      1.1.4
 // @description  tuanna3
 // @author       tuanna3
 // @match        https://helpdesk.crownx.com.vn/*
@@ -257,170 +257,213 @@ async function assignToVHUD() {
     $req.prop.inlineSave();
 }
 function addToolbar() {
-    const desc = document.getElementById("desc-content");
-    if (!desc || document.getElementById("tm-toolbar"))
-        return;
+    try {
+        const desc = document.getElementById("desc-content");
+        if (!desc || document.getElementById("tm-toolbar"))
+            return;
 
-    const container = document.createElement("div");
-    container.id = "tm-toolbar";
-    container.style.cssText = `
-        display:flex;
-        flex-direction:column;
-        gap:8px;
-        margin-top:10px;
-        padding:10px 14px;
-        background: #f8f9fa;
-        border-radius:6px;
-        border: 1px solid #e9ecef;
-    `;
+        // Xử lý desc để lấy text và tìm mã nhân viên
+        let text = "";
+        try {
+            if (desc.innerText) {
+                text = desc.innerText
+                    .split(/from\s*:/i)[0].trim()
+                    .split("\n")
+                    .map(line => line.trim())
+                    .filter(line => line !== "")
+                    .join("\n");
 
-    // === CỘT 1: Bước đầu ===
-    const col1 = document.createElement("div");
-    col1.style.cssText = `
-        display:flex;
-        gap:6px;
-        flex-wrap:wrap;
-        align-items:center;
-    `;
-    const label1 = document.createElement("span");
-    label1.textContent = "📤 Bước 1:";
-    label1.style.cssText = `
-        font-size:12px;
-        font-weight:600;
-        color:#495057;
-        margin-right:4px;
-        min-width:65px;
-    `;
-    col1.append(label1);
-    col1.append(
-        button(
-            "Send Discord",
-            "#5865F2",
-            () => sendDiscord(desc)
-        )
-    );
-
-    // === CỘT 2: Bước tiếp theo (Reply + Closed + SuperFast) ===
-    const col2 = document.createElement("div");
-    col2.style.cssText = `
-        display:flex;
-        gap:6px;
-        flex-wrap:wrap;
-        align-items:center;
-        padding-top:6px;
-        border-top: 1px solid #dee2e6;
-    `;
-    const label2 = document.createElement("span");
-    label2.textContent = "👷 Bước 2:";
-    label2.style.cssText = `
-        font-size:12px;
-        font-weight:600;
-        color:#495057;
-        margin-right:4px;
-        min-width:65px;
-    `;
-    col2.append(label2);
-    col2.append(
-        button(
-            "Reply (+clipboard)",
-            "#ff9800",
-            () => replyTicket(false)
-        ),
-        button(
-            "Close (Đăng nhập)",
-            "#1976d2",
-            () => autoClose("Dịch vụ Đăng nhập")
-        ),
-        button(
-            "✨1-Click✨ Reply(+clip) ➜Close ➜NextTicket",
-            "#d32f2f",
-            superFast1Click
-        )
-    );
-
-    // === CỘT 3: Dịch vụ phát sinh (Assign) ===
-    const col3 = document.createElement("div");
-    col3.style.cssText = `
-        display:flex;
-        gap:6px;
-        flex-wrap:wrap;
-        align-items:center;
-        padding-top:6px;
-        border-top: 1px solid #dee2e6;
-    `;
-    const label3 = document.createElement("span");
-    label3.textContent = "🚀 Gán:";
-    label3.style.cssText = `
-        font-size:12px;
-        font-weight:600;
-        color:#495057;
-        margin-right:4px;
-        min-width:65px;
-    `;
-    col3.append(label3);
-    col3.append(
-        button(
-            "Assign VHUD",
-            "#6c757d",
-            async () => {
-                const ok = confirm("Gán team VHUD");
-                if (!ok) return;
-                await assignToVHUD();
+                const MAX_LENGTH = 2000;
+                if (text.length > MAX_LENGTH) {
+                    text = text.slice(0, MAX_LENGTH - 20) + "\n...(đã cắt bớt)";
+                }
             }
-        ),
-        button(
-            "Assign Tuanna3",
-            "#6c757d",
-            async () => {
-                const ok = confirm("⛔ Cảnh báo nguy hiểm 😏");
-                if (!ok) return;
-                await assignToTuan();
-            }
-        )
-    );
+        } catch {}
 
-    // === CỘT 4: Tool khác ===
-    const col4 = document.createElement("div");
-    col4.style.cssText = `
-        display:flex;
-        gap:6px;
-        flex-wrap:wrap;
-        align-items:center;
-        padding-top:6px;
-        border-top: 1px solid #dee2e6;
-    `;
-    const label4 = document.createElement("span");
-    label4.textContent = "🛠️ Khác:";
-    label4.style.cssText = `
-        font-size:12px;
-        font-weight:600;
-        color:#495057;
-        margin-right:4px;
-        min-width:65px;
-    `;
-    col4.append(label4);
-    col4.append(
-        button(
-            "Close (Máy tính)",
-            "#17a2b8",
-            () => autoClose("Dịch vụ Máy tính")
-        )
-    );
-    col4.append(
-        button(
-            "Close (Cân điện tử)",
-            "#17a2b8",
-            () => autoClose("Hỗ trợ Cân")
-        )
-    );
+        // Kiểm tra có tồn tại mã nhân viên không (chỉ cần 1 là đủ)
+       const hasEmployeeIds = /(?<!\d)(0?[36]\d{5,6})(?!\d)/.test(text);
 
-    container.append(col1, col2, col3, col4);
+        const container = document.createElement("div");
+        container.id = "tm-toolbar";
+        container.style.cssText = `
+            display:flex;
+            flex-direction:column;
+            gap:8px;
+            margin-top:10px;
+            padding:10px 14px;
+            background: #f8f9fa;
+            border-radius:6px;
+            border: 1px solid #e9ecef;
+        `;
 
-    const actions = document.getElementById("desc-section");
-    if (actions) {
-        actions.insertAdjacentElement("afterend", container);
+        // === CỘT 1: Bước đầu ===
+        const col1 = document.createElement("div");
+        col1.style.cssText = `
+            display:flex;
+            gap:6px;
+            flex-wrap:wrap;
+            align-items:center;
+        `;
+        const label1 = document.createElement("span");
+        label1.textContent = "📤 Bước 1:";
+        label1.style.cssText = `
+            font-size:12px;
+            font-weight:600;
+            color:#495057;
+            margin-right:4px;
+            min-width:65px;
+        `;
+        col1.append(label1);
+        col1.append(
+            button(
+                "Send Discord",
+                "#5865F2",
+                () => sendDiscord(desc)
+            )
+        );
+
+        // === CỘT 2: Bước tiếp theo (Reply + Closed + SuperFast) - Chỉ hiện khi có mã NV ===
+        const col2 = document.createElement("div");
+        col2.style.cssText = `
+            display:flex;
+            gap:6px;
+            flex-wrap:wrap;
+            align-items:center;
+            padding-top:6px;
+            border-top: 1px solid #dee2e6;
+        `;
+        const label2 = document.createElement("span");
+        label2.textContent = "👷 Bước 2:";
+        label2.style.cssText = `
+            font-size:12px;
+            font-weight:600;
+            color:#495057;
+            margin-right:4px;
+            min-width:65px;
+        `;
+        col2.append(label2);
+        col2.append(
+            button(
+                "Reply (+clipboard)",
+                "#ff9800",
+                () => replyTicket(false)
+            ),
+            button(
+                "Close (Đăng nhập)",
+                "#1976d2",
+                () => autoClose("Dịch vụ Đăng nhập")
+            ),
+            button(
+                "✨1-Click✨ Reply(+clip) ➜Close ➜NextTicket",
+                "#d32f2f",
+                superFast1Click
+            )
+        );
+
+        // === CỘT 3: Dịch vụ phát sinh (Assign) - Chỉ hiện khi có mã NV ===
+        const col3 = document.createElement("div");
+        col3.style.cssText = `
+            display:flex;
+            gap:6px;
+            flex-wrap:wrap;
+            align-items:center;
+            padding-top:6px;
+            border-top: 1px solid #dee2e6;
+        `;
+        const label3 = document.createElement("span");
+        label3.textContent = "🚀 Gán:";
+        label3.style.cssText = `
+            font-size:12px;
+            font-weight:600;
+            color:#495057;
+            margin-right:4px;
+            min-width:65px;
+        `;
+        col3.append(label3);
+        col3.append(
+            button(
+                "Assign VHUD",
+                "#6c757d",
+                async () => {
+                    const ok = confirm("Gán team VHUD");
+                    if (!ok) return;
+                    await assignToVHUD();
+                }
+            ),
+            button(
+                "Assign Tuanna3",
+                "#6c757d",
+                async () => {
+                    const ok = confirm("⛔ Cảnh báo nguy hiểm 😏");
+                    if (!ok) return;
+                    await assignToTuan();
+                }
+            )
+        );
+
+        // === CỘT 4: Tool khác (Luôn hiển thị) ===
+        const col4 = document.createElement("div");
+        col4.style.cssText = `
+            display:flex;
+            gap:6px;
+            flex-wrap:wrap;
+            align-items:center;
+            padding-top:6px;
+            border-top: 1px solid #dee2e6;
+        `;
+        const label4 = document.createElement("span");
+        label4.textContent = "🛠️ Khác:";
+        label4.style.cssText = `
+            font-size:12px;
+            font-weight:600;
+            color:#495057;
+            margin-right:4px;
+            min-width:65px;
+        `;
+        col4.append(label4);
+        col4.append(
+            button(
+                "Close (Máy tính)",
+                "#17a2b8",
+                () => autoClose("Dịch vụ Máy tính")
+            )
+        );
+        col4.append(
+            button(
+                "Close (Đăng nhập)",
+                "#17a2b8",
+                () => autoClose("Dịch vụ Đăng nhập")
+            )
+        );
+        col4.append(
+            button(
+                "Close (Cân điện tử)",
+                "#17a2b8",
+                () => autoClose("Hỗ trợ Cân")
+            )
+        );
+        col4.append(
+            button(
+                "Close (Đường truyền)",
+                "#17a2b8",
+                () => autoClose("Đường truyền")
+            )
+        );
+
+        // Chỉ thêm col1 col2 và col3 nếu có mã nhân viên
+        if (hasEmployeeIds) {
+            container.append(col1,col2, col3);
+        }
+        container.append(col4);
+
+        const actions = document.getElementById("desc-section");
+        if (actions) {
+            actions.insertAdjacentElement("afterend", container);
+        }
+    } catch (error) {
+        console.error("Lỗi trong addToolbar:", error);
+        // Không làm gì thêm, chỉ log lỗi để tránh crash
     }
-
 }
 
 setInterval(()=>{
