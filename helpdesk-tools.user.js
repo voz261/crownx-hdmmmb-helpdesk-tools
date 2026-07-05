@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Helpdesk Tools
 // @namespace    https://github.com/voz261/crownx-hdmmmb-helpdesk-tools
-// @version      1.1.7
+// @version      1.1.8
 // @description  tuanna3
 // @author       tuanna3
 // @match        https://helpdesk.crownx.com.vn/*
@@ -116,24 +116,23 @@ async function autoClose(sub) {
         await setSelect("subcategory", sub);
         await setSelect("status", "7 Closed");
         $req.prop.inlineSave();
-
-        await sleep(1000);
-
+        //await sleep(1000);
         // Tìm nút "Tiếp theo"
-        const nextButton = document.querySelector('.li-nav.btn-group a:last-child');
-
+        //const nextButton = document.querySelector('.li-nav.btn-group a:last-child');
         // Kiểm tra nút có tồn tại và không bị disabled
+        /*
         if (nextButton && !nextButton.hasAttribute('disabled')) {
             console.log('Click vào nút Tiếp theo');
             nextButton.click();
         } else {
             console.log('Nút Tiếp theo bị disable, chuyển về danh sách');
             location.href = "https://helpdesk.crownx.com.vn/WOListView.do";
-        }
+        }*/
+        //location.href = "https://helpdesk.crownx.com.vn/WOListView.do";
     } catch (error) {
-        console.error("Lỗi trong autoClose:", error);
+        //console.error("Lỗi trong autoClose:", error);
         // Fallback: chuyển về danh sách nếu có lỗi
-        location.href = "https://helpdesk.crownx.com.vn/WOListView.do";
+        //location.href = "https://helpdesk.crownx.com.vn/WOListView.do";
     }
 }
 
@@ -363,7 +362,7 @@ function addToolbar() {
             );
             col2.append(
                 button(
-                    "✨1-Click✨ Reply(+clip) ➜Close ➜NextTicket",
+                    "✨1-Click✨ Reply(+clip) ➜ Close",
                     "#d32f2f",
                     superFast1Click
                 )
