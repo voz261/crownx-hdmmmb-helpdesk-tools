@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Helpdesk Tools
 // @namespace    https://github.com/voz261/crownx-hdmmmb-helpdesk-tools
-// @version      1.1.6
+// @version      1.1.7
 // @description  tuanna3
 // @author       tuanna3
 // @match        https://helpdesk.crownx.com.vn/*
