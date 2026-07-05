@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Helpdesk Tools
 // @namespace    https://github.com/voz261/crownx-hdmmmb-helpdesk-tools
-// @version      1.1.0
+// @version      1.1.1
 // @description  tuanna3
 // @author       tuanna3
 // @match        https://helpdesk.crownx.com.vn/*
@@ -64,7 +64,7 @@ async function sendDiscord(desc) {
         });
     } catch (e) {
         console.error(e);
-        alert("Gửi Discord thất bại");
+        alert("Gửi Discord thất bại!");
     }
 }
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
