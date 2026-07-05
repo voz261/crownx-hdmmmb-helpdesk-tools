@@ -3,6 +3,7 @@
 // @namespace    https://github.com/voz261/crownx-hdmmmb-helpdesk-tools
 // @version      1.1.0
 // @description  tuanna3
+// @author       tuanna3
 // @match        https://helpdesk.crownx.com.vn/*
 // @downloadURL  https://github.com/voz261/crownx-hdmmmb-helpdesk-tools/raw/refs/heads/main/helpdesk-tools.user.js
 // @updateURL    https://github.com/voz261/crownx-hdmmmb-helpdesk-tools/raw/refs/heads/main/helpdesk-tools.user.js
