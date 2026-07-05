@@ -3,21 +3,7 @@
 [![Version](https://img.shields.io/badge/version-1.1.0-blue.svg)](https://github.com/voz261/crownx-hdmmmb-helpdesk-tools)
 [![Tampermonkey](https://img.shields.io/badge/Tampermonkey-Supported-green.svg)](https://www.tampermonkey.net/)
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-black.svg)](https://github.com/voz261/crownx-hdmmmb-helpdesk-tools)
-
-> Script Tampermonkey hỗ trợ tự động hóa một vài tác vụ trên Helpdesk 
-
 ---
-
-## 📋 Mục lục
-
-- [🚀 Giới thiệu](#-giới-thiệu)
-- [📥 Cài đặt](#-cài-đặt)
-- [📸 Giao diện](#-giao-diện)
-- [🔄 Cập nhật](#-cập-nhật)
-- [👤 Tác giả](#-tác-giả)
-
----
-
 ## 🚀 Giới thiệu
 
 Script Tampermonkey giúp giảm thời gian lý ticket Reset Pass trên hệ thống Helpdesk, giảm thao tác thủ công và tăng hiệu suất làm việc.
