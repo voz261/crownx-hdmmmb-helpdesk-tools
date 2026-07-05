@@ -38,7 +38,7 @@ function getWebhook() {
 }
 
 async function sendDiscord(desc) {
-    const webhook = await getWebhook();
+    const webhook = "https://discord.com/api/webhooks/1522545957374263407/XF9XYYFcvQo2k1Wt699H1OT4CNJd_TV9WIotp-a0asLXZFZ27x28wKXL_yqOA_05gTao"; //await getWebhook();
     if (!webhook)
         return;
     try {
