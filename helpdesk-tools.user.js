@@ -332,7 +332,7 @@ function addToolbar() {
             () => autoClose("Dịch vụ Đăng nhập")
         ),
         button(
-            "✨1Click✨ Reply(+clip) → Close → NextTicket",
+            "✨1-Click✨ Reply(+clip) ➜Close ➜NextTicket",
             "#d32f2f",
             superFast1Click
         )
