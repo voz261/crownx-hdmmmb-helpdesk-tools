@@ -4,8 +4,8 @@
 // @version      1.1.0
 // @description  tuanna3
 // @match        https://helpdesk.crownx.com.vn/*
-// @downloadURL  https://raw.githubusercontent.com/voz261/crownx-hdmmmb-helpdesk-tools/main/helpdesk-tools.user.js
-// @updateURL    https://raw.githubusercontent.com/voz261/crownx-hdmmmb-helpdesk-tools/main/helpdesk-tools.user.js
+// @downloadURL  https://github.com/voz261/crownx-hdmmmb-helpdesk-tools/raw/refs/heads/main/helpdesk-tools.user.js
+// @updateURL    https://github.com/voz261/crownx-hdmmmb-helpdesk-tools/raw/refs/heads/main/helpdesk-tools.user.js
 // @grant none
 // ==/UserScript==
 
