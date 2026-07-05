@@ -1,6 +1,6 @@
 # 🛠️ Helpdesk Tools - Tampermonkey Script
 
-[![Version](https://img.shields.io/badge/version-1.1.7-blue.svg)](https://github.com/voz261/crownx-hdmmmb-helpdesk-tools)
+[![Version](https://img.shields.io/badge/version-1.1.9-blue.svg)](https://github.com/voz261/crownx-hdmmmb-helpdesk-tools)
 [![Tampermonkey](https://img.shields.io/badge/Tampermonkey-Supported-green.svg)](https://www.tampermonkey.net/)
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-black.svg)](https://github.com/voz261/crownx-hdmmmb-helpdesk-tools)
 ---
