@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Helpdesk Tools
 // @namespace    https://github.com/voz261/crownx-hdmmmb-helpdesk-tools
-// @version      1.2.1
+// @version      1.2.2
 // @description  tuanna3
 // @author       tuanna3
 // @match        https://helpdesk.crownx.com.vn/*
@@ -38,21 +38,44 @@ function getWebhook() {
 }
 
 async function sendDiscord(desc) {
-    const webhook = "https://discord.com/api/webhooks/1522545957374263407/XF9XYYFcvQo2k1Wt699H1OT4CNJd_TV9WIotp-a0asLXZFZ27x28wKXL_yqOA_05gTao"; //await getWebhook();
-    if (!webhook)
-        return;
+    let name = "";
+    let email = "";
+    const pdetails = document.querySelector('.prp-pdetails');
+    if (pdetails) {
+        name = pdetails.querySelector('strong')?.innerText || "";
+        email = pdetails.querySelector('div:last-child')?.innerText || "";
+    }
+    console.log('Name:', name, 'Email:', email);
+
+    const webhook = "https://discord.com/api/webhooks/1522545957374263407/XF9XYYFcvQo2k1Wt699H1OT4CNJd_TV9WIotp-a0asLXZFZ27x28wKXL_yqOA_05gTao";
+    if (!webhook) return;
+
     try {
         const MAX_LENGTH = 2000;
-        let text = desc.innerText
-        .split(/from\s*:/i)[0].trim()
-        .split("\n")
-        .map(line => line.trim())
-        .filter(line => line !== "")
-        .join("\n");
+        let text = "";
+
+        if (desc && desc.innerText) {
+            text = desc.innerText
+                .split(/from\s*:/i)[0].trim()
+                .split("\n")
+                .map(line => line.trim())
+                .filter(line => line !== "")
+                .join("\n");
+        }
+
+       // Chuyển tất cả ký tự không phải số và không phải khoảng trắng thành "."
+text = text.replace(/[^0-9\s\n]/g, '.');
+// Gộp nhiều dấu "." liên tiếp thành 1 dấu
+text = text.replace(/\.+/g, '.');
+// Xóa dấu "." ở đầu và cuối mỗi dòng
+//text = text.replace(/^\.+|\.+$/gm, '');
+
         if (text.length > MAX_LENGTH) {
             text = text.slice(0, MAX_LENGTH - 20) + "\n...(đã cắt bớt)";
         }
-        //console.log(text);
+
+        text = `👨‍💻 ${name}\n${text}`;
+
         await fetch(webhook, {
             method: "POST",
             headers: {
