@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Helpdesk Tools
 // @namespace    https://github.com/voz261/crownx-hdmmmb-helpdesk-tools
-// @version      1.2.0
+// @version      1.2.1
 // @description  tuanna3
 // @author       tuanna3
 // @match        https://helpdesk.crownx.com.vn/*
@@ -257,6 +257,15 @@ async function assignToVHUD() {
     await setSelect("status", "4 OnHold");
     $req.prop.inlineSave();
 }
+async function assignToNONE() {
+    $req.prop.sectionalFieldsEdit();
+    await setSelect("group","Không được gán");
+	await setSelect("technician", "Không được gán");
+	await setSelect("impact", "Chưa Cho Biết");
+    await setSelect("category","Không được gán");
+    await setSelect("status", "4 OnHold");
+    $req.prop.inlineSave();
+}
 function addToolbar() {
     try {
         const desc = document.getElementById("desc-content");
@@ -399,6 +408,15 @@ function addToolbar() {
                     const ok = confirm("Gán team VHUD");
                     if (!ok) return;
                     await assignToVHUD();
+                }
+            ),
+			button(
+                "Assign NONE",
+                "#6c757d",
+                async () => {
+                    const ok = confirm("Bỏ Gán Nhóm WMP");
+                    if (!ok) return;
+                    await assignToNONE();
                 }
             ),
             button(
