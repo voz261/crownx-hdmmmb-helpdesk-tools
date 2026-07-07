@@ -282,6 +282,16 @@ async function assignToVHUD() {
 	await sleep(300);
     $req.prop.inlineSave();
 }
+async function assignToTTCAM() {
+    $req.prop.sectionalFieldsEdit();
+    await setSelect("group","Không được gán");
+	await setSelect("technician", "Không được gán");
+	await setSelect("impact", "WMP - WinmartPlus");
+    await setSelect("category","TTCAM");
+    await setSelect("status", "4 OnHold");
+	await sleep(300);
+    $req.prop.inlineSave();
+}
 async function assignToNONE() {
     $req.prop.sectionalFieldsEdit();
     await setSelect("group","Không được gán");
@@ -443,6 +453,15 @@ function addToolbar() {
                     const ok = confirm("Bỏ Gán Nhóm WMP");
                     if (!ok) return;
                     await assignToNONE();
+                }
+            ),
+			button(
+                "Assign TTCAM",
+                "#6c757d",
+                async () => {
+                    const ok = confirm("Gán team TTCAM");
+                    if (!ok) return;
+                    await assignToTTCAM();
                 }
             ),
             button(
