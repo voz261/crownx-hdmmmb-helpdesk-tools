@@ -271,7 +271,7 @@ async function assignToTuan() {
     await setSelect("category","1.1.Hạ tầng - Helpdesk");
     await setSelect("technician", "Nguyễn Anh Tuấn (WM-CNTT-MB)");
     await setSelect("status", "4 OnHold");
-	await sleep(300);
+	await sleep(500);
     $req.prop.inlineSave();
 }
 async function assignToVHUD() {
@@ -279,17 +279,15 @@ async function assignToVHUD() {
     await setSelect("group","1 IT-VHUD");
     await setSelect("category","1.1.Hạ tầng - Helpdesk");
     await setSelect("status", "4 OnHold");
-	await sleep(300);
+	await sleep(500);
     $req.prop.inlineSave();
 }
 async function assignToTTCAM() {
     $req.prop.sectionalFieldsEdit();
-    await setSelect("group","Không được gán");
-	await setSelect("technician", "Không được gán");
+    await setSelect("group","TTCAM");
 	await setSelect("impact", "WMP - WinmartPlus");
-    await setSelect("category","TTCAM");
     await setSelect("status", "4 OnHold");
-	await sleep(300);
+	await sleep(500);
     $req.prop.inlineSave();
 }
 async function assignToNONE() {
@@ -299,7 +297,7 @@ async function assignToNONE() {
 	await setSelect("impact", "Chưa Cho Biết");
     await setSelect("category","Không được gán");
     await setSelect("status", "4 OnHold");
-	await sleep(300);
+	await sleep(500);
     $req.prop.inlineSave();
 }
 function addToolbar() {
