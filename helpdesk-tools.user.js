@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Helpdesk Tools
 // @namespace    https://github.com/voz261/crownx-hdmmmb-helpdesk-tools
-// @version      1.2.8
+// @version      1.2.9
 // @description  tuanna3
 // @author       tuanna3
 // @match        https://helpdesk.crownx.com.vn/*
@@ -133,6 +133,7 @@ async function autoClose(sub) {
     try {
         await sleep(1000);
         await pickUp();
+		await sleep(3000);
         $req.prop.sectionalFieldsEdit();
         await setSelect("group", "1 IT-HelpdeskMB");
 		await setSelect("impact", "WMP - WinmartPlus");
