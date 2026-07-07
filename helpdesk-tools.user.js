@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Helpdesk Tools
 // @namespace    https://github.com/voz261/crownx-hdmmmb-helpdesk-tools
-// @version      1.2.5
+// @version      1.2.6
 // @description  tuanna3
 // @author       tuanna3
 // @match        https://helpdesk.crownx.com.vn/*
@@ -294,9 +294,7 @@ async function assignToNONE() {
     $req.prop.sectionalFieldsEdit();
     await setSelect("group","Không được gán");
 	await setSelect("technician", "Không được gán");
-	await setSelect("impact", "Chưa Cho Biết");
-    await setSelect("category","Không được gán");
-    await setSelect("status", "4 OnHold");
+    await setSelect("status", "1 Open");
 	await sleep(500);
     $req.prop.inlineSave();
 }
