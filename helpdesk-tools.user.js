@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Helpdesk Tools
 // @namespace    https://github.com/voz261/crownx-hdmmmb-helpdesk-tools
-// @version      1.2.6
+// @version      1.2.7
 // @description  tuanna3
 // @author       tuanna3
 // @match        https://helpdesk.crownx.com.vn/*
@@ -510,6 +510,13 @@ function addToolbar() {
                 "Close (Cân điện tử)",
                 "#17a2b8",
                 () => autoClose("Hỗ trợ Cân")
+            )
+        );
+		col4.append(
+            button(
+                "Close (Thiết bị kết nối)",
+                "#17a2b8",
+                () => autoClose("Thiết bị kết nối")
             )
         );
         col4.append(
