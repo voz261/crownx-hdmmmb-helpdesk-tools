@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Helpdesk Tools
 // @namespace    https://github.com/voz261/crownx-hdmmmb-helpdesk-tools
-// @version      1.2.2
+// @version      1.2.3
 // @description  tuanna3
 // @author       tuanna3
 // @match        https://helpdesk.crownx.com.vn/*
@@ -271,6 +271,7 @@ async function assignToTuan() {
     await setSelect("category","1.1.Hạ tầng - Helpdesk");
     await setSelect("technician", "Nguyễn Anh Tuấn (WM-CNTT-MB)");
     await setSelect("status", "4 OnHold");
+	await sleep(300);
     $req.prop.inlineSave();
 }
 async function assignToVHUD() {
@@ -278,6 +279,7 @@ async function assignToVHUD() {
     await setSelect("group","1 IT-VHUD");
     await setSelect("category","1.1.Hạ tầng - Helpdesk");
     await setSelect("status", "4 OnHold");
+	await sleep(300);
     $req.prop.inlineSave();
 }
 async function assignToNONE() {
@@ -287,6 +289,7 @@ async function assignToNONE() {
 	await setSelect("impact", "Chưa Cho Biết");
     await setSelect("category","Không được gán");
     await setSelect("status", "4 OnHold");
+	await sleep(300);
     $req.prop.inlineSave();
 }
 function addToolbar() {
