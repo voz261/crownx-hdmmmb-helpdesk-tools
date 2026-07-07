@@ -119,9 +119,9 @@ async function setSelect(name, text) {
 }
 
 async function pickUp(){
-    const tech = document.querySelector("#technician-right-panel .form-control-static")?.innerText.trim();
+    /*const tech = document.querySelector("#technician-right-panel .form-control-static")?.innerText.trim();
     if (tech != "Không được gán")
-        return;
+        return;*/
     $req.prop.setRightPanelEdit("pickUp");
     await waitFor(() => {
         const t = document.querySelector("#technician-right-panel .form-control-static");
