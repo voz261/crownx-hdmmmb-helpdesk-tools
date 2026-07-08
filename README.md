@@ -7,10 +7,8 @@
 3. Tampermonkey sẽ tự động nhận diện và hiện cửa sổ cài đặt
 
 ## Cài đặt Tampermonkey
-Open Extension Management: Click the 3-dot menu, go to Extensions
-Select Manage Extensions.
-Allow User Scripts: On
-![Tampermonkey setup](setup.png)
+1. Open chrome://extensions/?id=dhdgffkkebhmkfjojejmpbldmpobfkfo
+2. Allow User Scripts: On
 
 ---
 ## 📸 Giao diện
