@@ -5,6 +5,9 @@
 2. Click vào link cài đặt trực tiếp:
    👉 **[Install Helpdesk Tools](https://github.com/voz261/crownx-hdmmmb-helpdesk-tools/raw/refs/heads/main/helpdesk-tools.user.js)**
 3. Tampermonkey sẽ tự động nhận diện và hiện cửa sổ cài đặt
+
+![Helpdesk Tools setup](setup.png)
+
 ---
 ## 📸 Giao diện
 ![Helpdesk Tools Interface](demo.png)
