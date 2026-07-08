@@ -6,7 +6,11 @@
    👉 **[Install Helpdesk Tools](https://github.com/voz261/crownx-hdmmmb-helpdesk-tools/raw/refs/heads/main/helpdesk-tools.user.js)**
 3. Tampermonkey sẽ tự động nhận diện và hiện cửa sổ cài đặt
 
-![Helpdesk Tools setup](setup.png)
+## Cài đặt Tampermonkey
+Open Extension Management: Click the 3-dot menu, go to Extensions
+Select Manage Extensions.
+Allow User Scripts: On
+![Tampermonkey setup](setup.png)
 
 ---
 ## 📸 Giao diện
