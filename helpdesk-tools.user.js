@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Helpdesk Tools
 // @namespace    https://github.com/voz261/crownx-hdmmmb-helpdesk-tools
-// @version      1.2.9
+// @version      1.3.0
 // @description  tuanna3
 // @author       tuanna3
 // @match        https://helpdesk.crownx.com.vn/*
@@ -275,6 +275,18 @@ async function assignToTuan() {
 	await sleep(500);
     $req.prop.inlineSave();
 }
+async function assignTicket(technician = "Nguyễn Anh Tuấn (WM-CNTT-MB)") {
+    $req.prop.sectionalFieldsEdit();
+
+    await setSelect("group", "1 IT-HelpdeskMB");
+    await setSelect("impact", "WMP - WinmartPlus");
+    await setSelect("category", "1.1.Hạ tầng - Helpdesk");
+    await setSelect("technician", technician);
+    await setSelect("status", "4 OnHold");
+
+    await sleep(500);
+    $req.prop.inlineSave();
+}
 async function assignToVHUD() {
     $req.prop.sectionalFieldsEdit();
     await setSelect("group","1 IT-VHUD");
@@ -461,13 +473,24 @@ function addToolbar() {
                     await assignToTTCAM();
                 }
             ),
+			button(
+                "Assign Dinhnv",
+                "#6c757d",
+                async () => {
+                    const ok = confirm("⛔ Cảnh báo nguy hiểm 😏");
+                    if (!ok) return;
+                    // Gán cho Định
+					await assignTicket("Nguyễn Văn Định (WM-CNTT-MB)");
+                }
+            ),
             button(
                 "Assign Tuanna3",
                 "#6c757d",
                 async () => {
                     const ok = confirm("⛔ Cảnh báo nguy hiểm 😏");
                     if (!ok) return;
-                    await assignToTuan();
+                    // Mặc định gán cho Tuấn
+					await assignTicket();
                 }
             )
         );
